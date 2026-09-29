@@ -47,8 +47,364 @@ html {
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  width: 1500px !important;
+  scroll-behavior: smooth;
+}
 
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* NEW: Mobile responsive fixes */
+@media (max-width: 767.98px) {
+  .hero-wrap {
+    height: 500px !important;
+  }
+  
+  .hero-wrap .text {
+    height: 500px !important;
+  }
+  
+  .video-hero {
+    height: 500px !important;
+  }
+  
+  .video-hero .text h2 {
+    font-size: 50px !important;
+  }
+  
+  .ftco-about-section .one-half {
+    width: 100% !important;
+    margin-left: 0 !important;
+    padding: 30px 20px;
+  }
+  
+  .ftco-about-section .img {
+    height: 350px !important;
+  }
+  
+  .ftco-about-section .text-wrapper {
+    height: auto !important;
+  }
+  
+  .model-img {
+    height: 350px !important;
+  }
+  
+  .testimony-wrap .user-img {
+    width: 150px !important;
+    height: 150px !important;
+  }
+  
+  .heading-section h2 {
+    font-size: 36px !important;
+  }
+  
+  .bread {
+    font-size: 32px !important;
+  }
+  
+  .req-quote {
+    margin-bottom: 20px;
+  }
+  
+  .ftco-footer .col-md-4,
+  .ftco-footer .col-md-2,
+  .ftco-footer .col-md-3 {
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .video-hero .text h2 {
+    font-size: 36px !important;
+  }
+  
+  .video-hero .text .subheading {
+    font-size: 16px !important;
+    letter-spacing: 5px !important;
+  }
+  
+  .video-hero .text h3 {
+    font-size: 18px !important;
+  }
+  
+  .heading-section h2 {
+    font-size: 28px !important;
+  }
+  
+  .model-img {
+    height: 300px !important;
+  }
+  
+  .model-img .name h3,
+  .model-img .text h3 {
+    font-size: 28px !important;
+  }
+}
+
+/* NEW: Basic animations */
+.ftco-animate {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease, visibility 0.6s;
+}
+
+.ftco-animate.fadeInUp {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* Smooth hover animations */
+.btn {
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.model-entry {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.model-entry:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+.services {
+  transition: transform 0.3s ease;
+}
+
+.services:hover {
+  transform: translateY(-10px);
+}
+
+.services:hover .icon {
+  transform: scale(1.1);
+  transition: transform 0.3s ease;
+}
+
+/* Smooth image transitions */
+.model-img {
+  transition: transform 0.4s ease;
+}
+
+/* Footer social hover */
+.ftco-footer-social li a {
+  transition: all 0.3s ease;
+}
+
+.ftco-footer-social li a:hover {
+  background: #f34573;
+  transform: translateY(-3px);
+}
+
+/* Navigation smooth transitions */
+#colorlib-main-nav ul li a span {
+  transition: color 0.3s ease, padding 0.3s ease;
+}
+
+#colorlib-main-nav ul li a:hover span {
+  color: #f34573;
+  padding-left: 15px;
+}
+
+/* Blog entry hover */
+.blog-entry {
+  transition: transform 0.3s ease;
+}
+
+.blog-entry:hover {
+  transform: translateY(-5px);
+}
+
+.blog-entry .block-20 {
+  transition: transform 0.4s ease;
+}
+
+.blog-entry:hover .block-20 {
+  transform: scale(1.05);
+}
+
+/* Testimonial carousel smooth */
+.testimony-wrap {
+  transition: opacity 0.3s ease;
+}
+
+/* Form focus animations */
+.form-control {
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-control:focus {
+  border-color: #f34573 !important;
+  box-shadow: 0 0 0 0.2rem rgba(243, 69, 115, 0.25) !important;
+}
+
+/* Loader fade out */
+#ftco-loader {
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+/* Mobile menu animation */
+#colorlib-main-nav {
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Header logo hover */
+.colorlib-logo {
+  transition: opacity 0.3s ease;
+}
+
+.colorlib-logo:hover {
+  opacity: 0.8;
+}
+
+/* Section fade in on scroll */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-on-scroll {
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+/* Responsive container fixes */
+@media (max-width: 1199.98px) {
+  .container {
+    max-width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+/* Fix for model detail page */
+.model-detail {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 767.98px) {
+  .model-info h3 {
+    font-size: 28px !important;
+  }
+  
+  .carousel-model {
+    margin-bottom: 20px;
+  }
+}
+
+/* Fix for contact section */
+@media (max-width: 767.98px) {
+  .contact-section .order-first {
+    order: -1;
+  }
+  
+  .contact-info {
+    margin-bottom: 30px;
+  }
+  
+  .block-9 .col-md-4,
+  .block-9 .col-md-6 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+/* Fix for blog single */
+@media (max-width: 767.98px) {
+  .sidebar {
+    margin-top: 30px;
+  }
+  
+  .ftco-degree-bg {
+    padding-bottom: 3em;
+  }
+}
+
+/* Smooth scroll for anchor links */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Better focus states for accessibility */
+a:focus,
+button:focus,
+input:focus,
+textarea:focus {
+  outline: 2px solid #f34573;
+  outline-offset: 2px;
+}
+
+/* Prevent horizontal scroll */
+.row {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+/* Fix navbar on mobile */
+@media (max-width: 767.98px) {
+  header {
+    padding: 1.5em 0;
+  }
+  
+  .colorlib-navbar-brand .colorlib-logo {
+    font-size: 22px !important;
+  }
+  
+  .colorlib-navbar-brand .colorlib-logo span {
+    font-size: 9px !important;
+    letter-spacing: 4px !important;
+  }
+}
+
+/* Responsive iframe */
+iframe {
+  max-width: 100%;
+}
+
+/* Fix for owl carousel on mobile */
+@media (max-width: 767.98px) {
+  .owl-carousel .owl-nav {
+    display: none;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #f34573;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #d63a62;
 }
 
 article,
